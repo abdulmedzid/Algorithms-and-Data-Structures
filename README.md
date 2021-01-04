@@ -1,4 +1,4 @@
-# Basic Algorithms and Data Structured implemented in C++
+## Basic Algorithms and Data Structures implemented in C++
 
-## Data Strucures
-- [Linked List](#)
+### Data Strucures
+- [Linked List](Algorithms and Data Structures)
