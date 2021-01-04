@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ef7af9c6-ce8c-463c-8188-c95dfdb60a1c}</ProjectGuid>
+    <ProjectGuid>{B0C816E0-56C0-48BD-ABCA-23041B3551CA}</ProjectGuid>
     <RootNamespace>AlgorithmsandDataStructures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Algorithms-and-Data Structures</ProjectName>
