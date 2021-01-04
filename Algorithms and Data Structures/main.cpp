@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./src/data_structures/node/Node.h"
-#include "src/data_structures/liked_list/LinkedList.h"
+#include "src/data_structures/linked_list/LinkedList.h"
 using namespace std;
 
 const char* line = "###############################\n";
