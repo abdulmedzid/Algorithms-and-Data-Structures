@@ -1,5 +1,6 @@
 #include <iostream>
-#include "./src/data_structures/node/Node.h";
+#include "./src/data_structures/node/Node.h"
+#include "src/data_structures/liked_list/LinkedList.h"
 using namespace std;
 
 const char* line = "###############################\n";
@@ -18,7 +19,26 @@ void TestNodes() {
 	cout << *(node1->getNext()->getNext()) << endl;
 }
 
+void TestLinkedList() {
+	cout
+		<< line
+		<< "LINKED LIST TEST" << endl
+		<< line;
+
+	LinkedList<int> linkedList;
+
+	int a = 1;
+	linkedList.add(a);
+	linkedList.add(1);
+	for (int i = 2; i < 20; i++) {
+		linkedList.add(linkedList.get(i - 1) + linkedList.get(i - 2));
+	}
+
+	cout << linkedList << endl;
+}
+
 int main() {
 	TestNodes();
+	TestLinkedList();
 	return 0;
 }

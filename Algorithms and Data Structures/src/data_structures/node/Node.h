@@ -1,17 +1,14 @@
 #pragma once
 #include <iostream>
 
-template<typename T>
+template<class T>
 class Node {
-
 private:
-
 	T* mData;
 	Node* mNext;
 	Node* mPrev;
 
 public:
-
 	Node() : mData(nullptr), mNext(nullptr), mPrev(nullptr) {}
 
 	Node(const T& data) : mNext(nullptr), mPrev(nullptr) {
@@ -40,7 +37,7 @@ public:
 		return *this;
 	}
 
-	T* getData() { return this.mData; }
+	T& getData() const { return *mData; }
 
 	void setData(const T& dataObj) {
 		if (mData != nullptr) {
@@ -51,8 +48,8 @@ public:
 		}
 	}
 
-	Node* getNext() { return mNext; }
-	Node* getPrev() { return mPrev; }
+	Node* getNext() const { return mNext; }
+	Node* getPrev() const { return mPrev; }
 	void setNext(Node* next) { mNext = next; }
 	void setPrev(Node* prev) { mPrev = prev; }
 

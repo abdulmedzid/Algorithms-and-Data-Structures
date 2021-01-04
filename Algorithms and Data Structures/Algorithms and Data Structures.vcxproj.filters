@@ -23,5 +23,11 @@
     <ClInclude Include="src\data_structures\node\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\data_structures\list\List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data_structures\liked_list\LinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
