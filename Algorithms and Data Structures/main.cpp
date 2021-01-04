@@ -3,7 +3,7 @@
 #include "src/data_structures/linked_list/LinkedList.h"
 using namespace std;
 
-const char* line = "###############################\n";
+const char* line = "---------------------------------------------------\n";
 
 void TestNodes() {
 	cout
@@ -24,16 +24,21 @@ void TestLinkedList() {
 		<< line
 		<< "LINKED LIST TEST" << endl
 		<< line;
-
 	LinkedList<int> linkedList;
-
 	int a = 1;
 	linkedList.add(a);
 	linkedList.add(1);
 	for (int i = 2; i < 20; i++) {
 		linkedList.add(linkedList.get(i - 1) + linkedList.get(i - 2));
 	}
-
+	cout << linkedList << endl;
+	linkedList.setAt(30, 1);
+	cout << linkedList << endl;
+	linkedList.removeAt(1);
+	cout << linkedList << endl;
+	linkedList.insert(999, 5);
+	cout << linkedList << endl;
+	linkedList.remove(999);
 	cout << linkedList << endl;
 }
 
