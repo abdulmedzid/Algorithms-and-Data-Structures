@@ -8,9 +8,9 @@ class LinkedList : public List<T> {
 private:
     Node<T>*        mFirst;
     
-    bool	        isLocationInBounds(int location) const {
-    		        	return location >= 0 && location < this->mSize;
-    		        }
+    bool            isLocationInBounds(int location) const {
+                        return location >= 0 && location < this->mSize;
+                    }
     
     Node<T>*        getNodeAt(int location) const {
                         if (!isLocationInBounds(location)) {
@@ -54,7 +54,6 @@ private:
                         mFirst = nullptr;
                         this->mSize = 0;
     		        }
-    
 public:
                     LinkedList() : List<T>(), mFirst(nullptr) {}
                     
