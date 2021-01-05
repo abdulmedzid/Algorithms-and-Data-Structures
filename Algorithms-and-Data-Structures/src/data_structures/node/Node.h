@@ -13,6 +13,10 @@ public:
                     Node(const T& data) : mNext(nullptr), mPrev(nullptr) {
                         mData = new T(data);
                     }
+
+                    Node(const T& data, Node<T>* prev, Node<T>* next) : mPrev(prev), mNext(next) {
+                        mData = new T(data);
+                    }
 					
                     Node(const Node& nodeObj) {
                         mData = new T(*nodeObj.mData);

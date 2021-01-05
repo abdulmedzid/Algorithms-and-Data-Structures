@@ -43,17 +43,6 @@ private:
                         }
                         this->mSize++;
     		        }
-    
-    void	        clear() {
-                        Node<T>* curr = mFirst;
-                        while (curr != nullptr) {
-                            Node<T>* prev = curr;
-                            curr = curr->getNext();
-                            delete prev;
-                        }
-                        mFirst = nullptr;
-                        this->mSize = 0;
-    		        }
 public:
                     LinkedList() : List<T>(), mFirst(nullptr) {}
                     
@@ -106,7 +95,7 @@ public:
                         node->setData(obj);
                     }
     
-    T&              get(int location) const {
+    T&              getAt(int location) const {
                         return getNodeAt(location)->getData();
                     }
     
@@ -144,6 +133,17 @@ public:
                             next = next->getNext();
                         }
                         return -1;
+                    }
+
+    void	        clear() {
+                        Node<T>* curr = mFirst;
+                        while (curr != nullptr) {
+                            Node<T>* prev = curr;
+                            curr = curr->getNext();
+                            delete prev;
+                        }
+                        mFirst = nullptr;
+                        this->mSize = 0;
                     }
     
     friend std::ostream& operator<<(std::ostream& out, const LinkedList& obj) {

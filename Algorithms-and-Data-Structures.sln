@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithms-and-Data Structures", "Algorithms and Data Structures\Algorithms and Data Structures.vcxproj", "{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithms-and-Data Structures", "Algorithms-and-Data-Structures\Algorithms-and-Data-Structures.vcxproj", "{B0C816E0-56C0-48BD-ABCA-23041B3551CA}"
 EndProject
 Global
@@ -15,14 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Debug|x64.ActiveCfg = Debug|x64
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Debug|x64.Build.0 = Debug|x64
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Debug|x86.ActiveCfg = Debug|Win32
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Debug|x86.Build.0 = Debug|Win32
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Release|x64.ActiveCfg = Release|x64
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Release|x64.Build.0 = Release|x64
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Release|x86.ActiveCfg = Release|Win32
-		{EF7AF9C6-CE8C-463C-8188-C95DFDB60A1C}.Release|x86.Build.0 = Release|Win32
 		{B0C816E0-56C0-48BD-ABCA-23041B3551CA}.Debug|x64.ActiveCfg = Debug|x64
 		{B0C816E0-56C0-48BD-ABCA-23041B3551CA}.Debug|x64.Build.0 = Debug|x64
 		{B0C816E0-56C0-48BD-ABCA-23041B3551CA}.Debug|x86.ActiveCfg = Debug|Win32

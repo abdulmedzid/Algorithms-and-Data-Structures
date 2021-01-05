@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data_structures\liked_list\LinkedList.h" />
+    <ClInclude Include="src\data_structures\linked_list_doubly\DoublyLinkedList.h" />
     <ClInclude Include="src\data_structures\list\List.h" />
     <ClInclude Include="src\data_structures\node\Node.h" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "./src/data_structures/node/Node.h"
 #include "src/data_structures/linked_list/LinkedList.h"
+#include "src/data_structures/linked_list_doubly/DoublyLinkedList.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -29,7 +30,7 @@ void TestLinkedList() {
 	linkedList.add(a);
 	linkedList.add(1);
 	for (int i = 2; i < 20; i++) {
-		linkedList.add(linkedList.get(i - 1) + linkedList.get(i - 2));
+		linkedList.add(linkedList.getAt(i - 1) + linkedList.getAt(i - 2));
 	}
 	cout << linkedList << endl;
 	linkedList.setAt(30, 1);
@@ -42,8 +43,32 @@ void TestLinkedList() {
 	cout << linkedList << endl;
 }
 
+void TestDoublyLinkedList() {
+    cout
+        << line
+        << "DOUBLY LINKED LIST TEST" << endl
+        << line;
+    LinkedList<int> linkedList;
+    int a = 1;
+    linkedList.add(a);
+    linkedList.add(1);
+    for (int i = 2; i < 20; i++) {
+        linkedList.add(linkedList.getAt(i - 1) + linkedList.getAt(i - 2));
+    }
+    cout << linkedList << endl;
+    linkedList.setAt(30, 1);
+    cout << linkedList << endl;
+    linkedList.removeAt(1);
+    cout << linkedList << endl;
+    linkedList.insert(999, 5);
+    cout << linkedList << endl;
+    linkedList.remove(999);
+    cout << linkedList << endl;
+}
+
 int main() {
 	TestNodes();
 	TestLinkedList();
+    TestDoublyLinkedList();
 	return 0;
 }
