@@ -1,5 +1,7 @@
 #pragma once
 #include <exception>
+#include <sstream>
+#include <string>
 #include "../node/Node.h"
 #include "../list/List.h"
 
@@ -58,16 +60,45 @@ private:
                             prev->setNext(next);
                             next->setPrev(prev);
                             delete node;
+                            this->mSize--;
+                        }
+
+    void                addNodeStart(Node<T>* node) {
+                            if (mFirst == nullptr) {
+                                mFirst = mLast = node;
+                            }
+                            else {
+                               node->setNext(mFirst);
+                               mFirst->setPrev(node);
+                               mFirst = node;
+                            }
+                            this->mSize++;
+                        }
+
+    void                addNodeEnd(Node<T>* node) {
+                            if (mFirst == nullptr) {
+                                mFirst = mLast = node;
+                            }
+                            else {
+                                node->setPrev(mLast);
+                                mLast->setNext(node);
+                                mLast = node;
+                            }
+                            this->mSize++;
+                        }
+
+    void                copyNodes(const DoublyLinkedList& obj) {
+                            Node<T>* node = obj.mFirst;
+                            while (node != nullptr) {
+                                addNodeEnd(new Node<T>(*node));
+                                node = node->getNext();
+                            }
                         }
 public:
                         DoublyLinkedList() : List<T>() {}
                         
                         DoublyLinkedList(const DoublyLinkedList& obj) : List<T>() {
-                            Node<T>* next = obj.mFirst;
-                            while (next != nullptr) {
-                                addNode(new Node(*next));
-                                next = next->getNext();
-                            }
+                            copyNodes(obj);
                         }
 
                         ~DoublyLinkedList() {
@@ -75,49 +106,38 @@ public:
                         }
 
     DoublyLinkedList&   operator=(const DoublyLinkedList& obj) {
+                            clear();
+                            copyNodes();
                             return *this;
-                        }
-    
-    T&                  getAt(int location) {
-                            getNodeAt(location)->getData();
-                        }
-    
-    void                setAt(const T& obj, int location) {
-                            getNodeAt(location)->setData(obj);
                         }
 
     void                add(const T& obj) { // adds to end
-                            Node<T>* newLast = new Node<T>(obj);
-                            if (mLast == nullptr) {
-                                mFirst = mLast = newLast;
-                            }
-                            else {
-                                newLast->setPrev(mLast);
-                                mLast->setNext(newLast);
-                                mLast = newLast;
-                            }
+                            addNodeEnd(new Node<T>(obj));
                         }
 
-    void                addFirst(const T& obj) {
-                            Node<T>* newFirst = new Node<T>(obj);        
-                            if (mFirst == nullptr) {
-                                mFirst = mLast = newFirst;
-                            }
-                            else {
-                                newFirst->setNext(mFirst);
-                                mFirst->setPrev(newFirst);
-                                mFirst = newFirst;
-                            }
-                        }
-
-    void                addLast(const T& obj) {
-                            add(obj);
+    void                addStart(const T& obj) {
+                            addNodeStart(new Node<T>(obj));
                         }
 
     void                insert(const T& obj, int location) {
-                            Node<T>* oldNode = getNodeAt(location);
-                            Node<T>* newNode = new Node<T>(obj, oldNode->getPrev(), oldNode);
-                            oldNode->setPrev(newNode);
+                            if (location == 0) {
+                                addStart(obj);
+                            }
+                            else {
+                                Node<T>* oldNode = getNodeAt(location);
+                                Node<T>* newNode = new Node<T>(obj, oldNode->getPrev(), oldNode);
+                                oldNode->getPrev()->setNext(newNode);
+                                oldNode->setPrev(newNode);
+                                this->mSize++;
+                            }
+                        }
+
+    T&                  getAt(int location) const {
+                            return getNodeAt(location)->getData();
+                        }
+
+    void                setAt(const T& obj, int location) {
+                            getNodeAt(location)->setData(obj);
                         }
 
     void                remove(const T& obj) {
@@ -128,27 +148,43 @@ public:
                             removeNode(getNodeAt(location));
                         }
 
-     int                indexOf(const T& obj) const {
+    int                 indexOf(const T& obj) const {
                             int i = 0;
-                            Node<T>* next = mFirst;
-                            while (next != nullptr) {
-                                if (next->getData() == obj) {
+                            Node<T>* node = mFirst;
+                            while (node != nullptr) {
+                                if (node->getData() == obj) {
                                     return i;
                                 }
                                 i++;
-                                next = next->getNext();
+                                node = node->getNext();
                             }
                             return -1;
                         }
 
     void	            clear() {
-                            Node<T>* curr = mFirst;
-                            while (curr != nullptr) {
-                                Node<T>* prev = curr;
-                                curr = curr->getNext();
-                                delete prev;
+                            Node<T>* node = mFirst;
+                            while (node != nullptr) {
+                                Node<T>* rmNode = node;
+                                node = node->getNext();
+                                delete rmNode;
                             }
                             mFirst = nullptr;
                             this->mSize = 0;
                         }
+
+    std::string         toString() const {
+                            std::stringstream ss;
+                            Node<T>* next = mFirst;
+                            while (next != nullptr) {
+                                ss << next->getData() << " ";
+                                next = next->getNext();
+                            }
+                            return ss.str();
+                        }
+
+    friend std::ostream& operator<<(std::ostream& out, const DoublyLinkedList& obj) {
+        out << obj.toString();
+        return out;
+    }
+
 };

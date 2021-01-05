@@ -48,7 +48,7 @@ void TestDoublyLinkedList() {
         << line
         << "DOUBLY LINKED LIST TEST" << endl
         << line;
-    LinkedList<int> linkedList;
+    DoublyLinkedList<int> linkedList;
     int a = 1;
     linkedList.add(a);
     linkedList.add(1);
