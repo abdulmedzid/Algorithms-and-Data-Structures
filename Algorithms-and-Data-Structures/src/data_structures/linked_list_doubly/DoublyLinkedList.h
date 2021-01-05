@@ -90,12 +90,12 @@ private:
     void                copyNodes(const DoublyLinkedList& obj) {
                             Node<T>* node = obj.mFirst;
                             while (node != nullptr) {
-                                addNodeEnd(new Node<T>(*node));
+                                addNodeEnd(new Node<T>(node->getData()));
                                 node = node->getNext();
                             }
                         }
 public:
-                        DoublyLinkedList() : List<T>() {}
+                        DoublyLinkedList() : List<T>(), mFirst(nullptr), mLast(nullptr) {}
                         
                         DoublyLinkedList(const DoublyLinkedList& obj) : List<T>() {
                             copyNodes(obj);
@@ -107,7 +107,7 @@ public:
 
     DoublyLinkedList&   operator=(const DoublyLinkedList& obj) {
                             clear();
-                            copyNodes();
+                            copyNodes(obj);
                             return *this;
                         }
 

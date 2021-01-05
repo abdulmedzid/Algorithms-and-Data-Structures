@@ -55,7 +55,7 @@ private:
     void                copyNodes(const LinkedList& obj) {
                             Node<T>* node = obj.mFirst;
                             while (node != nullptr) {
-                                addNodeEnd(new Node<T>(*node));
+                                addNodeEnd(new Node<T>(node->getData()));
                                 node = node->getNext();
                             }
                         }

@@ -41,6 +41,17 @@ void TestLinkedList() {
 	cout << linkedList << endl;
 	linkedList.remove(999);
 	cout << linkedList << endl;
+
+    LinkedList<int> linkedListCopy(linkedList);
+    cout
+        << "copy constructor:" << endl
+        << linkedListCopy << endl;
+
+    LinkedList<int> linkedListAsignment;
+    linkedListAsignment = linkedListCopy;
+    cout
+        << "asignment:" << endl
+        << linkedListAsignment << endl;
 }
 
 void TestDoublyLinkedList() {
@@ -64,6 +75,17 @@ void TestDoublyLinkedList() {
     cout << linkedList << endl;
     linkedList.remove(999);
     cout << linkedList << endl;
+
+    DoublyLinkedList<int> linkedListCopy(linkedList);
+    cout 
+        << "copy constructor:" << endl 
+        << linkedListCopy << endl;
+
+    DoublyLinkedList<int> linkedListAsignment;
+    linkedListAsignment = linkedListCopy;
+    cout
+        << "asignment:" << endl
+        << linkedListAsignment << endl;
 }
 
 int main() {
