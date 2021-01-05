@@ -8,14 +8,10 @@
 template <class T>
 class LinkedList : public List<T> {
 private:
-    Node<T>*            mFirst;
-    
-    bool                isLocationInBounds(int location) const {
-                            return location >= 0 && location < this->mSize;
-                        }
+    Node<T>* mFirst;
     
     Node<T>*            getNodeAt(int location) const {
-                            if (!isLocationInBounds(location)) {
+                            if (!this->isIndexInBounds(location)) {
                                 throw std::exception("index out of bounds");
                             }
                             Node<T>* node = mFirst;
@@ -59,6 +55,7 @@ private:
                                 node = node->getNext();
                             }
                         }
+
 public:
                         LinkedList() : List<T>(), mFirst(nullptr) {}
                         

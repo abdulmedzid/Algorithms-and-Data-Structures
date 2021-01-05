@@ -11,12 +11,8 @@ private:
     Node<T>*            mFirst;
     Node<T>*            mLast;
 
-    bool                isLocationInBounds(int location) const {
-                            return location >= 0 && location < this->mSize;
-                        }
-
     Node<T>*            getNodeAt(int location) const {
-                            if (!isLocationInBounds(location)) {
+                            if (!this->isIndexInBounds(location)) {
                                 throw std::exception("index out of bounds");
                             }
                             if (location <= this->mSize / 2) {
@@ -54,15 +50,6 @@ private:
                             return nullptr;
                         }
 
-    void                removeNode(Node<T>* node) {
-                            Node<T>* prev = node->getPrev();
-                            Node<T>* next = node->getNext();
-                            prev->setNext(next);
-                            next->setPrev(prev);
-                            delete node;
-                            this->mSize--;
-                        }
-
     void                addNodeStart(Node<T>* node) {
                             if (mFirst == nullptr) {
                                 mFirst = mLast = node;
@@ -87,6 +74,15 @@ private:
                             this->mSize++;
                         }
 
+    void                removeNode(Node<T>* node) {
+                            Node<T>* prev = node->getPrev();
+                            Node<T>* next = node->getNext();
+                            prev->setNext(next);
+                            next->setPrev(prev);
+                            delete node;
+                            this->mSize--;
+                        }
+
     void                copyNodes(const DoublyLinkedList& obj) {
                             Node<T>* node = obj.mFirst;
                             while (node != nullptr) {
@@ -94,6 +90,7 @@ private:
                                 node = node->getNext();
                             }
                         }
+
 public:
                         DoublyLinkedList() : List<T>(), mFirst(nullptr), mLast(nullptr) {}
                         

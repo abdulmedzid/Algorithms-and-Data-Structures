@@ -2,6 +2,7 @@
 #include "./src/data_structures/node/Node.h"
 #include "src/data_structures/linked_list/LinkedList.h"
 #include "src/data_structures/linked_list_doubly/DoublyLinkedList.h"
+#include "src/data_structures/array/Array.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -88,9 +89,48 @@ void TestDoublyLinkedList() {
         << linkedListAsignment << endl;
 }
 
+void TestArray() {
+    cout
+        << line
+        << "ARRAY TEST" << endl
+        << line;
+    Array<int> array;
+    int a = 1;
+    array.add(a);
+    array.add(1);
+    for (int i = 2; i < 20; i++) {
+        array.add(array[i-1] + array[i-2]);
+    }
+    cout << array << endl;
+    array.setAt(30, 1);
+    cout << "setAt(30, 1)" << endl;
+    cout << array << endl;
+    array.removeAt(1);
+    cout << "removeAt(1)" << endl;
+    cout << array << endl;
+    array.insert(999, 5);
+    cout << "insert(999, 5)" << endl;
+    cout << array << endl;
+    array.remove(999);
+    cout << "remove(999)" << endl;
+    cout << array << endl;
+
+    Array<int> arrayCopy(array);
+    cout
+        << "copy constructor:" << endl
+        << arrayCopy << endl;
+
+    Array<int> arrayAsigned;
+    arrayAsigned = arrayCopy;
+    cout
+        << "asignment:" << endl
+        << arrayAsigned << endl;
+}
+
 int main() {
-	TestNodes();
-	TestLinkedList();
-    TestDoublyLinkedList();
-	return 0;
+	//TestNodes();
+	//TestLinkedList();
+    //TestDoublyLinkedList();
+    TestArray();
+    return 0;
 }
