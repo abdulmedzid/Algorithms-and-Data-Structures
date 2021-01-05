@@ -161,7 +161,7 @@ public:
                             return -1;
                         }
 
-    void	            clear() {
+    void                clear() {
                             Node<T>* node = mFirst;
                             while (node != nullptr) {
                                 Node<T>* rmNode = node;
@@ -186,5 +186,4 @@ public:
         out << obj.toString();
         return out;
     }
-
 };
