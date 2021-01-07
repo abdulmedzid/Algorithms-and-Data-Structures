@@ -5,7 +5,7 @@ template <class T>
 class List {
 protected:
     int                     mSize;
-
+public:
                             List() : mSize(0) {};
     virtual void            add(const T& obj) = 0;
     virtual void            addStart(const T& obj) = 0;
@@ -17,7 +17,6 @@ protected:
     virtual T&              getAt(int location) const = 0;
     virtual std::string     toString() const = 0;
 
-public:
     T& operator[](int location) const {
         return getAt(location);
     }

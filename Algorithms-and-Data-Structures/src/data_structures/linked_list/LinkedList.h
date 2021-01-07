@@ -16,7 +16,7 @@ private:
                             }
                             Node<T>* node = mFirst;
                             for (int i = 0; i < location; i++) {
-                                node = node->getNext();
+                                node = node->getRight();
                             }
                             return node;
                         }
@@ -26,13 +26,13 @@ private:
                                 throw std::exception("empty linked list");
                             }
                             Node<T>* curr = mFirst;
-                            while (curr->getNext() != nullptr)
-                                curr = curr->getNext();
+                            while (curr->getRight() != nullptr)
+                                curr = curr->getRight();
                             return curr;
     		            }
     
     void                addNodeStart(Node<T>* node) {
-                            node->setNext(mFirst);
+                            node->setRight(mFirst);
                             mFirst = node;
                             this->mSize++;
                         }
@@ -43,7 +43,7 @@ private:
                             }
                             else {
                                 Node<T>* last = getLastNode();
-                                last->setNext(node);
+                                last->setRight(node);
                             }
                             this->mSize++;
                         }
@@ -52,7 +52,7 @@ private:
                             Node<T>* node = obj.mFirst;
                             while (node != nullptr) {
                                 addNodeEnd(new Node<T>(node->getData()));
-                                node = node->getNext();
+                                node = node->getRight();
                             }
                         }
 
@@ -94,8 +94,8 @@ public:
                             }
                             else {
                                 Node<T>* prev = getNodeAt(location - 1);
-                                node->setNext(prev->getNext());
-                                prev->setNext(node);
+                                node->setRight(prev->getRight());
+                                prev->setRight(node);
                                 this->mSize++;
                             }
                         }
@@ -120,14 +120,14 @@ public:
                                 }
                                 else {
                                     Node<T>* rmNode = mFirst;
-                                    mFirst = mFirst->getNext();
+                                    mFirst = mFirst->getRight();
                                     delete rmNode;
                                 }
                             }
                             else {
                                 Node<T>* prevRmNode = getNodeAt(location - 1);
-                                Node<T>* rmNode = prevRmNode->getNext();
-                                prevRmNode->setNext(rmNode->getNext());
+                                Node<T>* rmNode = prevRmNode->getRight();
+                                prevRmNode->setRight(rmNode->getRight());
                                 delete rmNode;
                             }
                             this->mSize--;
@@ -141,7 +141,7 @@ public:
                                     return i;
                                 }
                                 i++;
-                                node = node->getNext();
+                                node = node->getRight();
                             }
                             return -1;
                         }
@@ -150,7 +150,7 @@ public:
                             Node<T>* node = mFirst;
                             while (node != nullptr) {
                                 Node<T>* rmNode = node;
-                                node = node->getNext();
+                                node = node->getRight();
                                 delete rmNode;
                             }
                             mFirst = nullptr;
@@ -162,7 +162,7 @@ public:
                             Node<T>* next = mFirst;
                             while (next != nullptr) {
                                 ss << next->getData() << " ";
-                                next = next->getNext();
+                                next = next->getRight();
                             }
                             return ss.str();
                         }

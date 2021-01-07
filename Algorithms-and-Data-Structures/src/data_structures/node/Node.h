@@ -5,23 +5,23 @@ template<class T>
 class Node {
 private:
     T*              mData;
-    Node*           mNext;
-    Node*           mPrev;
+    Node*           mRight;
+    Node*           mLeft;
 public:
-                    Node() : mData(nullptr), mNext(nullptr), mPrev(nullptr) {}
+                    Node() : mData(nullptr), mRight(nullptr), mLeft(nullptr) {}
 					
-                    Node(const T& data) : mNext(nullptr), mPrev(nullptr) {
+                    Node(const T& data) : mRight(nullptr), mLeft(nullptr) {
                         mData = new T(data);
                     }
 
-                    Node(const T& data, Node<T>* prev, Node<T>* next) : mPrev(prev), mNext(next) {
+                    Node(const T& data, Node<T>* left, Node<T>* right) : mRight(right), mLeft(left) {
                         mData = new T(data);
                     }
 					
                     Node(const Node& nodeObj) {
                         mData = new T(*nodeObj.mData);
-                        mNext = nodeObj.mNext;
-                        mPrev = nodeObj.mPrev;
+                        mRight = nodeObj.mRight;
+                        mLeft = nodeObj.mLeft;
                     }
 
 					~Node() {
@@ -30,8 +30,8 @@ public:
 
     Node&           operator=(const Node& nodeObj) {
                         setData(*nodeObj.mData);
-                        this.mNext = nodeObj.mNext;
-                        this.mPrev = nodeObj.mPrev;
+                        this.mRight = nodeObj.mRight;
+                        this.mLeft = nodeObj.mLeft;
                         return *this;
                     }
     
@@ -51,10 +51,10 @@ public:
                         }
                     }
     
-    Node*           getNext() const { return mNext; }
-    Node*           getPrev() const { return mPrev; }
-    void            setNext(Node* next) { mNext = next; }
-    void            setPrev(Node* prev) { mPrev = prev; }
+    Node*&          getRight() { return mRight; }
+    Node*&          getLeft() { return mLeft; }
+    void            setRight(Node* next) { mRight = next; }
+    void            setLeft(Node* prev) { mLeft = prev; }
     
     friend std::ostream& operator<<(std::ostream& out, const Node<T>& nodeObj) {
         if (nodeObj.mData != nullptr) {

@@ -5,7 +5,7 @@
 #include "src/data_structures/array/Array.h"
 #include "src/data_structures/stack/Stack.h"
 #include "src/data_structures/queue/Queue.h"
-#include "main.h"
+#include "src/data_structures/tree_binary/BinaryTree.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -18,10 +18,10 @@ void TestNodes() {
 	Node<int>* node1 = new Node<int>(10);
 	Node<int>* node2 = new Node<int>(20);
 	Node<int>* node3 = new Node<int>(30);
-	node1->setNext(node2);
-	node2->setNext(node3);
-	cout << *(node1->getNext()) << endl;
-	cout << *(node1->getNext()->getNext()) << endl;
+	node1->setRight(node2);
+	node2->setRight(node3);
+	cout << *(node1->getRight()) << endl;
+	cout << *(node1->getRight()->getRight()) << endl;
 }
 
 void TestLinkedList() {
@@ -180,12 +180,39 @@ void TestQueue() {
     }
 }
 
+void TestBinaryTree() {
+    
+    cout
+        << line
+        << "BINARY TREE TEST" << endl
+        << line;
+    BinaryTree<int> binaryTree;
+    binaryTree.insert(10);
+    binaryTree.insert(20);
+    binaryTree.insert(30);
+    binaryTree.insert(5);
+    binaryTree.insert(16);
+    binaryTree.insert(50);
+    /*
+           10
+          5  20
+           16  30
+                 50
+    */
+
+    cout << binaryTree << endl;
+
+    BinaryTree<int> copy = binaryTree;
+    cout << "copy\n" << copy << endl;
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
     //TestDoublyLinkedList();
     //TestArray();
-    TestStack();
-    TestQueue();
+    //TestStack();
+    //TestQueue();
+    TestBinaryTree();
     return 0;
 }
