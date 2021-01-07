@@ -8,50 +8,51 @@
 template <class T>
 class LinkedList : public List<T> {
 private:
-    Node<T>*            mFirst;
+    typedef Node<T> Node;
+    Node*            mFirst;
     
-    Node<T>*            getNodeAt(int location) const {
+    Node*            getNodeAt(int location) const {
                             if (!this->isIndexInBounds(location)) {
                                 throw std::exception("index out of bounds");
                             }
-                            Node<T>* node = mFirst;
+                            Node* node = mFirst;
                             for (int i = 0; i < location; i++) {
                                 node = node->getRight();
                             }
                             return node;
                         }
     
-    Node<T>*            getLastNode() const {
+    Node*            getLastNode() const {
                             if (mFirst == nullptr) {
                                 throw std::exception("empty linked list");
                             }
-                            Node<T>* curr = mFirst;
+                            Node* curr = mFirst;
                             while (curr->getRight() != nullptr)
                                 curr = curr->getRight();
                             return curr;
     		            }
     
-    void                addNodeStart(Node<T>* node) {
+    void                addNodeStart(Node* node) {
                             node->setRight(mFirst);
                             mFirst = node;
                             this->mSize++;
                         }
 
-    void                addNodeEnd(Node<T>* node) {
+    void                addNodeEnd(Node* node) {
                             if (mFirst == nullptr) {
                                 mFirst = node;
                             }
                             else {
-                                Node<T>* last = getLastNode();
+                                Node* last = getLastNode();
                                 last->setRight(node);
                             }
                             this->mSize++;
                         }
 
     void                copyNodes(const LinkedList& obj) {
-                            Node<T>* node = obj.mFirst;
+                            Node* node = obj.mFirst;
                             while (node != nullptr) {
-                                addNodeEnd(new Node<T>(node->getData()));
+                                addNodeEnd(new Node(node->getData()));
                                 node = node->getRight();
                             }
                         }
@@ -74,15 +75,15 @@ public:
                         }
     
     void                add(const T& obj) { // adds to end
-                            addNodeEnd(new Node<T>(obj));
+                            addNodeEnd(new Node(obj));
                         }
 
     void                addStart(const T& obj) {
-                            addNodeStart(new Node<T>(obj));
+                            addNodeStart(new Node(obj));
                         }
     
     void                insert(const T& obj, int location) {
-                            Node<T>* node = new Node<T>(obj);
+                            Node* node = new Node(obj);
                             if (location == 0) {
                                 if (mFirst == nullptr) {
                                     mFirst = node;
@@ -93,7 +94,7 @@ public:
                                 }
                             }
                             else {
-                                Node<T>* prev = getNodeAt(location - 1);
+                                Node* prev = getNodeAt(location - 1);
                                 node->setRight(prev->getRight());
                                 prev->setRight(node);
                                 this->mSize++;
@@ -101,7 +102,7 @@ public:
                         }
     
     void                setAt(const T& obj, int location) {
-                            Node<T>* node = getNodeAt(location);
+                            Node* node = getNodeAt(location);
                             node->setData(obj);
                         }
     
@@ -119,14 +120,14 @@ public:
                                     throw std::exception("empty linked list");
                                 }
                                 else {
-                                    Node<T>* rmNode = mFirst;
+                                    Node* rmNode = mFirst;
                                     mFirst = mFirst->getRight();
                                     delete rmNode;
                                 }
                             }
                             else {
-                                Node<T>* prevRmNode = getNodeAt(location - 1);
-                                Node<T>* rmNode = prevRmNode->getRight();
+                                Node* prevRmNode = getNodeAt(location - 1);
+                                Node* rmNode = prevRmNode->getRight();
                                 prevRmNode->setRight(rmNode->getRight());
                                 delete rmNode;
                             }
@@ -135,7 +136,7 @@ public:
     
     int                 indexOf(const T& obj) const {
                             int i = 0;
-                            Node<T>* node = mFirst;
+                            Node* node = mFirst;
                             while (node != nullptr) {
                                 if (node->getData() == obj) {
                                     return i;
@@ -147,9 +148,9 @@ public:
                         }
 
     void                clear() {
-                            Node<T>* node = mFirst;
+                            Node* node = mFirst;
                             while (node != nullptr) {
-                                Node<T>* rmNode = node;
+                                Node* rmNode = node;
                                 node = node->getRight();
                                 delete rmNode;
                             }
@@ -159,7 +160,7 @@ public:
 
     std::string         toString() const {
                             std::stringstream ss;
-                            Node<T>* next = mFirst;
+                            Node* next = mFirst;
                             while (next != nullptr) {
                                 ss << next->getData() << " ";
                                 next = next->getRight();

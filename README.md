@@ -6,3 +6,4 @@
 - [Doubly Linked List](Algorithms-and-Data-Structures/src/data_structures/linked_list_doubly/DoublyLinkedList.h)
 - [Stack](Algorithms-and-Data-Structures/src/data_structures/stack/Stack.h)
 - [Queue](Algorithms-and-Data-Structures/src/data_structures/queue/Queue.h)
+- [Binary Tree](Algorithms-and-Data-Structures/src/data_structures/tree_binary/BinaryTree.h)

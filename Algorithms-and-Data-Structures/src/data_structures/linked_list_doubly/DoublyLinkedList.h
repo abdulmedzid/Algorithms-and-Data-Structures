@@ -8,10 +8,11 @@
 template <class T>
 class DoublyLinkedList : public List<T> {
 private:
-    Node<T>*            mFirst;
-    Node<T>*            mLast;
+    typedef Node<T> Node;
+    Node*            mFirst;
+    Node*            mLast;
 
-    Node<T>*            getNodeAt(int location) const {
+    Node*            getNodeAt(int location) const {
                             if (!this->isIndexInBounds(location)) {
                                 throw std::exception("index out of bounds");
                             }
@@ -23,24 +24,24 @@ private:
                             }
                         }
 
-    Node<T>*            getNodeFromFirst(int location) const {
-                            Node<T>* node = mFirst;
+    Node*            getNodeFromFirst(int location) const {
+                            Node* node = mFirst;
                             for (int i = 0; i < location; i++) {
                                 node = node->getRight();
                             }
                             return node;
                         }
 
-    Node<T>*            getNodeFromLast(int location) const {
-                            Node<T>* node = mLast;
+    Node*            getNodeFromLast(int location) const {
+                            Node* node = mLast;
                             for (int i = this->mSize-1; i > location; i--) {
                                 node = node->getLeft();
                             }
                             return node;
                         }
 
-    Node<T>*            getNodeOf(const T& obj) const {
-                            Node<T>* node = mFirst;
+    Node*            getNodeOf(const T& obj) const {
+                            Node* node = mFirst;
                             while (node != nullptr) {
                                 if (node->getData() == obj) {
                                     return node;
@@ -50,7 +51,7 @@ private:
                             return nullptr;
                         }
 
-    void                addNodeStart(Node<T>* node) {
+    void                addNodeStart(Node* node) {
                             if (mFirst == nullptr) {
                                 mFirst = mLast = node;
                             }
@@ -62,7 +63,7 @@ private:
                             this->mSize++;
                         }
 
-    void                addNodeEnd(Node<T>* node) {
+    void                addNodeEnd(Node* node) {
                             if (mFirst == nullptr) {
                                 mFirst = mLast = node;
                             }
@@ -74,9 +75,9 @@ private:
                             this->mSize++;
                         }
 
-    void                removeNode(Node<T>* node) {
-                            Node<T>* prev = node->getLeft();
-                            Node<T>* next = node->getRight();
+    void                removeNode(Node* node) {
+                            Node* prev = node->getLeft();
+                            Node* next = node->getRight();
                             prev->setRight(next);
                             next->setLeft(prev);
                             delete node;
@@ -84,9 +85,9 @@ private:
                         }
 
     void                copyNodes(const DoublyLinkedList& obj) {
-                            Node<T>* node = obj.mFirst;
+                            Node* node = obj.mFirst;
                             while (node != nullptr) {
-                                addNodeEnd(new Node<T>(node->getData()));
+                                addNodeEnd(new Node(node->getData()));
                                 node = node->getRight();
                             }
                         }
@@ -109,11 +110,11 @@ public:
                         }
 
     void                add(const T& obj) { // adds to end
-                            addNodeEnd(new Node<T>(obj));
+                            addNodeEnd(new Node(obj));
                         }
 
     void                addStart(const T& obj) {
-                            addNodeStart(new Node<T>(obj));
+                            addNodeStart(new Node(obj));
                         }
 
     void                insert(const T& obj, int location) {
@@ -121,8 +122,8 @@ public:
                                 addStart(obj);
                             }
                             else {
-                                Node<T>* oldNode = getNodeAt(location);
-                                Node<T>* newNode = new Node<T>(obj, oldNode->getLeft(), oldNode);
+                                Node* oldNode = getNodeAt(location);
+                                Node* newNode = new Node(obj, oldNode->getLeft(), oldNode);
                                 oldNode->getLeft()->setRight(newNode);
                                 oldNode->setLeft(newNode);
                                 this->mSize++;
@@ -147,7 +148,7 @@ public:
 
     int                 indexOf(const T& obj) const {
                             int i = 0;
-                            Node<T>* node = mFirst;
+                            Node* node = mFirst;
                             while (node != nullptr) {
                                 if (node->getData() == obj) {
                                     return i;
@@ -159,9 +160,9 @@ public:
                         }
 
     void                clear() {
-                            Node<T>* node = mFirst;
+                            Node* node = mFirst;
                             while (node != nullptr) {
-                                Node<T>* rmNode = node;
+                                Node* rmNode = node;
                                 node = node->getRight();
                                 delete rmNode;
                             }
@@ -171,7 +172,7 @@ public:
 
     std::string         toString() const {
                             std::stringstream ss;
-                            Node<T>* next = mFirst;
+                            Node* next = mFirst;
                             while (next != nullptr) {
                                 ss << next->getData() << " ";
                                 next = next->getRight();
