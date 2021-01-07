@@ -5,7 +5,7 @@
 
 template <class T>
 class Array : public List<T> {
-private:
+protected:
     T*                  mElements;
     int                 mMaxSize;
 

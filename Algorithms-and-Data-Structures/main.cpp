@@ -3,6 +3,9 @@
 #include "src/data_structures/linked_list/LinkedList.h"
 #include "src/data_structures/linked_list_doubly/DoublyLinkedList.h"
 #include "src/data_structures/array/Array.h"
+#include "src/data_structures/stack/Stack.h"
+#include "src/data_structures/queue/Queue.h"
+#include "main.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -127,10 +130,62 @@ void TestArray() {
         << arrayAsigned << endl;
 }
 
+void TestStack() {
+    cout
+        << line
+        << "STACK TEST" << endl
+        << line;
+
+    Stack<int> stack;
+
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    stack.push(40);
+
+    while (!stack.isEmpty()) {
+        cout << stack.pop() << endl;
+    }
+
+    try {
+        stack.pop();
+    }
+    catch (exception ex) {
+        cout << ex.what() << endl;
+    }
+}
+
+void TestQueue() {
+    cout
+        << line
+        << "QUEUE TEST" << endl
+        << line;
+
+    Queue<int> queue;
+
+    queue.enqueue(10);
+    queue.enqueue(20);
+    queue.enqueue(30);
+    queue.enqueue(40);
+
+    while (!queue.isEmpty()) {
+        cout << queue.dequeue() << endl;
+    }
+
+    try {
+        queue.dequeue();
+    }
+    catch (exception ex) {
+        cout << ex.what() << endl;
+    }
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
     //TestDoublyLinkedList();
-    TestArray();
+    //TestArray();
+    TestStack();
+    TestQueue();
     return 0;
 }

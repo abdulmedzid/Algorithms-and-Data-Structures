@@ -8,7 +8,7 @@
 template <class T>
 class LinkedList : public List<T> {
 private:
-    Node<T>* mFirst;
+    Node<T>*            mFirst;
     
     Node<T>*            getNodeAt(int location) const {
                             if (!this->isIndexInBounds(location)) {
@@ -146,7 +146,7 @@ public:
                             return -1;
                         }
 
-    void                  clear() {
+    void                clear() {
                             Node<T>* node = mFirst;
                             while (node != nullptr) {
                                 Node<T>* rmNode = node;
