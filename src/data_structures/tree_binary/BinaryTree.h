@@ -105,7 +105,7 @@ public:
                             callback(root);
                         }
 
-    std::string            toString() const {
+    std::string         toString() const {
                             std::stringstream ss;
                             int height = getHeight(mRoot);
         

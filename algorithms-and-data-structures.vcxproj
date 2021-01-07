@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{B0C816E0-56C0-48BD-ABCA-23041B3551CA}</ProjectGuid>
-    <RootNamespace>AlgorithmsandDataStructures</RootNamespace>
+    <ProjectGuid>{c3433ff6-e8a0-4015-a896-83985eb09211}</ProjectGuid>
+    <RootNamespace>algorithmsanddatastructures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Algorithms-and-Data Structures</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +139,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="src\data_structures\array\Array.h" />
+    <ClInclude Include="src\data_structures\linked_list\LinkedList.h" />
+    <ClInclude Include="src\data_structures\linked_list_doubly\DoublyLinkedList.h" />
+    <ClInclude Include="src\data_structures\list\List.h" />
+    <ClInclude Include="src\data_structures\node\Node.h" />
+    <ClInclude Include="src\data_structures\queue\Queue.h" />
+    <ClInclude Include="src\data_structures\stack\Stack.h" />
+    <ClInclude Include="src\data_structures\tree_binary\BinaryTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
