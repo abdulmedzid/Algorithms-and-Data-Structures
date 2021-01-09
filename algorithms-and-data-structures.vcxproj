@@ -147,6 +147,7 @@
     <ClInclude Include="src\data_structures\queue\Queue.h" />
     <ClInclude Include="src\data_structures\stack\Stack.h" />
     <ClInclude Include="src\data_structures\tree_binary\BinaryTree.h" />
+    <ClInclude Include="src\data_structures\tree_binary_heap\BinaryHeap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />

@@ -69,8 +69,10 @@ public:
                         }
     
     LinkedList&         operator=(const LinkedList& obj) {
-                            clear(); 
-                            copyNodes(obj);
+                            if (this != &obj) {
+                                clear();
+                                copyNodes(obj);
+                            }
                             return *this;
                         }
     

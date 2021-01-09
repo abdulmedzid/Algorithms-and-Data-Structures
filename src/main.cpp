@@ -6,6 +6,7 @@
 #include "./data_structures/stack/Stack.h"
 #include "./data_structures/queue/Queue.h"
 #include "./data_structures/tree_binary/BinaryTree.h"
+#include "./data_structures/tree_binary_heap/BinaryHeap.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -206,6 +207,22 @@ void TestBinaryTree() {
     cout << "copy\n" << copy << endl;
 }
 
+void TestBinaryHeap() {
+    cout
+        << line
+        << "BINARY HEAP TEST" << endl
+        << line;
+    BinaryHeap<int> binaryHeap;
+    for (int i = 1; i <= 8; i++) {
+        binaryHeap.insert(i);
+    }
+    cout << binaryHeap << endl;
+    for (int i = 0; i < 8; i++) {
+        cout << binaryHeap.extractRoot() << endl;
+        cout << binaryHeap << endl;
+    }
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
@@ -213,6 +230,7 @@ int main() {
     //TestArray();
     //TestStack();
     //TestQueue();
-    TestBinaryTree();
+    //TestBinaryTree();
+    TestBinaryHeap();
     return 0;
 }

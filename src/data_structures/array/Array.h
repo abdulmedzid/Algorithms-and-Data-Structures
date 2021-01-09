@@ -8,6 +8,28 @@ class Array : public List<T> {
 protected:
     T*                  mElements;
     int                 mMaxSize;
+public:
+                        Array(int startMax = 10) : List<T>(), mMaxSize(startMax), mElements(nullptr) {
+                            if (mMaxSize != 0) {
+                                mElements = new T[mMaxSize];
+                            }
+                        }
+
+                        Array(const Array& obj) : List<T>() {
+                            copyArray(obj);
+                        }
+
+                        ~Array() {
+                            clear();
+                        }
+
+    Array&              operator=(const Array& obj) {
+                            if (this != &obj) {
+                                clear();
+                                copyArray(obj);
+                            }
+                            return *this;
+                        }
 
     void                expand() {
                             if (mMaxSize == 0) {
@@ -60,23 +82,6 @@ protected:
                             return index >= 0 && index <= mMaxSize;
                         }
 
-public:
-                        Array() : List<T>(), mMaxSize(0), mElements(nullptr) {}
-    
-                        Array(const Array& obj) : List<T>() {
-                            copyArray(obj);
-                        }
-
-                        ~Array() {
-                            clear();
-                        }
-
-    Array&              operator=(const Array& obj) {
-                            clear();
-                            copyArray(obj);
-                            return *this;
-                        }
-
     void                clear() {
                             delete[] mElements;
                             mMaxSize = 0;
@@ -125,6 +130,44 @@ public:
 
     T&                  getAt(int location) const {
                             return mElements[location];
+                        }
+
+    T&                  getMax() {
+                            if (!this->isEmpty()) {
+                                T& max = mElements[0];
+                                for (int i = 1; i < this->mSize; i++) {
+                                    if (mElements[i] > max) {
+                                        max = mElements[i];
+                                    }
+                                }
+                                return max;
+                            }
+                            return T();
+                        }
+
+    T&                  getMin() {
+                            if (!this->isEmpty()) {
+                                T& min = mElements[0];
+                                for (int i = 1; i < this->mSize; i++) {
+                                    if (mElements[i] < min) {
+                                        min = mElements[i];
+                                    }
+                                }
+                                return min;
+                            }
+                            return T();
+                        }
+
+    void                setSize(int size) {
+                            // dangerous function
+                            this->mSize = size;
+                        }
+
+
+    void                swap(int i1, int i2) {
+                            T temp = mElements[i1];
+                            mElements[i1] = mElements[i2];
+                            mElements[i2] = temp;
                         }
 
     std::string         toString() const {

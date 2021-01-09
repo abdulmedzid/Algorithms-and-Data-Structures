@@ -7,3 +7,4 @@
 - [Stack](./src/data_structures/stack/Stack.h)
 - [Queue](./src/data_structures/queue/Queue.h)
 - [Binary Tree](./src/data_structures/tree_binary/BinaryTree.h)
+- [Binary Heap](./src/data_structures/tree_binary_heap/BinaryHeap.h)

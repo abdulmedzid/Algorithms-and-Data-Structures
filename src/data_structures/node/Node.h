@@ -55,6 +55,26 @@ public:
     Node*&          getLeft() { return mLeft; }
     void            setRight(Node* next) { mRight = next; }
     void            setLeft(Node* prev) { mLeft = prev; }
+
+    bool            operator>(const Node& obj) {
+                        return *mData > *obj.mData;
+                    }
+
+    bool            operator<(const Node& obj) {
+                        return *mData < *obj.mData;
+                    }
+
+    bool            operator>=(const Node& obj) {
+                        return *mData >= *obj.mData;
+                    }
+
+    bool            operator<=(const Node& obj) {
+                        return *mData <= *obj.mData;
+                    }
+
+    bool            operator==(const Node& obj) {
+                        return *mData == *obj.mData;
+                    }
     
     friend std::ostream& operator<<(std::ostream& out, const Node<T>& nodeObj) {
         if (nodeObj.mData != nullptr) {

@@ -39,6 +39,9 @@
     <ClInclude Include="src\data_structures\tree_binary\BinaryTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\data_structures\tree_binary_heap\BinaryHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

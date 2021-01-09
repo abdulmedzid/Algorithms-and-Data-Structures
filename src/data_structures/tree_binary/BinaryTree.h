@@ -6,7 +6,6 @@
 #include "../node/Node.h"
 #include "../queue/Queue.h"
 
-
 template <class T>
 class BinaryTree {
 private:
@@ -46,7 +45,7 @@ public:
                             clear();
                         }
 
-    BinaryTree&            operator=(const BinaryTree& obj) {
+    BinaryTree&         operator=(const BinaryTree& obj) {
                             if (this != &obj) {
                                 clear();
                                 copy(obj);
@@ -131,7 +130,6 @@ public:
                                 }
                                 ss << std::endl;
                             }
-
                             return ss.str();
                         }
 

@@ -104,8 +104,10 @@ public:
                         }
 
     DoublyLinkedList&   operator=(const DoublyLinkedList& obj) {
-                            clear();
-                            copyNodes(obj);
+                            if (this != &obj) {
+                                clear();
+                                copyNodes(obj);
+                            }
                             return *this;
                         }
 
