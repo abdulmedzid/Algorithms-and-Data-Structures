@@ -36,7 +36,6 @@ class BinaryHeap {
 private:
     BinaryHeapType              mType;
     Array<T>                    mNodes;
-
 public:
                                 BinaryHeap(BinaryHeapType type = MAX) : mNodes(65), mType(type) {}
 
