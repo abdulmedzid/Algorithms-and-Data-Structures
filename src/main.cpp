@@ -212,13 +212,13 @@ void TestBinaryHeap() {
         << line
         << "BINARY HEAP TEST" << endl
         << line;
-    BinaryHeap<int> binaryHeap;
-    for (int i = 1; i <= 8; i++) {
+    BinaryHeap<int> binaryHeap(MIN);
+    for (int i = 1; i <= 10; i++) {
         binaryHeap.insert(i);
     }
     cout << binaryHeap << endl;
     for (int i = 0; i < 8; i++) {
-        cout << binaryHeap.extractRoot() << endl;
+        cout << "extract: " << binaryHeap.extractRoot() << endl;
         cout << binaryHeap << endl;
     }
 }

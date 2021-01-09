@@ -86,7 +86,14 @@ public:
                                     mNodes.add(obj);
                                     int newNodeIndex = getSize() - 1;
                                     int parentIndex = getParentIndex(newNodeIndex);
-                                    while (newNodeIndex != 0 && getAt(parentIndex) < getAt(newNodeIndex)) {
+                                    while (
+                                        newNodeIndex != 0 &&
+                                        (
+                                            getAt(parentIndex) < getAt(newNodeIndex) && mType == MAX ||
+                                            getAt(parentIndex) > getAt(newNodeIndex) && mType == MIN
+                                        )
+                                    ) 
+                                    {
                                         mNodes.swap(parentIndex, newNodeIndex);
                                         newNodeIndex = parentIndex;
                                         parentIndex = getParentIndex(newNodeIndex);
@@ -105,12 +112,27 @@ public:
                                     int root = nodeIndex;
                                     int left = getLeftChildIndex(root);
                                     int right = getRightChildIndex(root);
-                                    if (left < getSize() && getAt(left) > getAt(root)) {
+                                    
+                                    if (
+                                        left < getSize() &&
+                                        (
+                                            getAt(left) > getAt(root) && mType == MAX ||
+                                            getAt(left) < getAt(root) && mType == MIN
+                                        )
+                                    ) {
                                         root = left;
                                     }
-                                    if (right < getSize() && getAt(right) > getAt(root)) {
+
+                                    if (
+                                        right < getSize() && 
+                                        (
+                                            getAt(right) > getAt(root) && mType == MAX ||
+                                            getAt(right) < getAt(root) && mType == MIN
+                                        )
+                                    ) {
                                         root = right;
                                     }
+
                                     if (nodeIndex != root) {
                                         mNodes.swap(nodeIndex, root);
                                         heapify(root);
