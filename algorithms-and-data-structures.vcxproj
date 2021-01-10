@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\algorithms\sorting\Compare.h" />
     <ClInclude Include="src\algorithms\sorting\Sorting.h" />
     <ClInclude Include="src\data_structures\array\Array.h" />
     <ClInclude Include="src\data_structures\linked_list\LinkedList.h" />

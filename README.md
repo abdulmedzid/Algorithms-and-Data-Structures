@@ -14,3 +14,5 @@
 ### Sorting
 - [BubbleSort](./src/algorithms/sorting/Sorting.h)
 - [InsertionSort](./src/algorithms/sorting/Sorting.h)
+- [MergeSort](./src/algorithms/sorting/Sorting.h)
+- [QuickSort](./src/algorithms/sorting/Sorting.h)

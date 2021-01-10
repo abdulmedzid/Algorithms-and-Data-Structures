@@ -242,6 +242,30 @@ void TestInsertionSort() {
     InsertionSort(arr, [](int a, int b) -> bool { return a > b; });
 }
 
+void TestMergeSort() {
+    Array<int> arr;
+    for (int i = 0; i < 10; i++) {
+        arr.add(rand() % 100);
+    }
+    cout << arr << endl;
+    cout << "------------------------------------" << endl;
+    MergeSort(arr, [](int a, int b) -> bool { return a <= b; });
+    cout << arr << endl;
+    cout << "------------------------------------" << endl;
+}
+
+void TestQuickSort() {
+    Array<int> arr;
+    for (int i = 0; i < 10; i++) {
+        arr.add(rand() % 100);
+    }
+    cout << arr << endl;
+    cout << "------------------------------------" << endl;
+    QuickSort(arr, [](int a, int b) -> bool { return a <= b; });
+    cout << arr << endl;
+    cout << "------------------------------------" << endl;
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
@@ -252,6 +276,8 @@ int main() {
     //TestBinaryTree();
     //TestBinaryHeap();
     //TestBubbleSort();
-    TestInsertionSort();
+    //TestInsertionSort();
+    //TestMergeSort();
+    TestQuickSort();
     return 0;
 }

@@ -178,6 +178,14 @@ public:
                             return ss.str();
                         }
 
+    Array<T>            operator()(int start, int end) {
+                            Array<T> arr = Array<T>(end - start + 1);
+                            for (int i = start; i <= end; i++) {
+                                arr.add(mElements[i]);
+                            }
+                            return arr;
+                        }
+
     friend std::ostream& operator<<(std::ostream& out, const Array& obj) {
         out << obj.toString();
         return out;
