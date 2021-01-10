@@ -45,6 +45,12 @@
     <ClInclude Include="src\data_structures\queue_priority\PriorityQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\Sorting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\Compare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

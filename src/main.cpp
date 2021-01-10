@@ -1,12 +1,15 @@
 #include <iostream>
-#include "./data_structures/node/Node.h"
-#include "./data_structures/linked_list/LinkedList.h"
-#include "./data_structures/linked_list_doubly/DoublyLinkedList.h"
-#include "./data_structures/array/Array.h"
-#include "./data_structures/stack/Stack.h"
-#include "./data_structures/queue/Queue.h"
-#include "./data_structures/tree_binary/BinaryTree.h"
-#include "./data_structures/tree_binary_heap/BinaryHeap.h"
+#include <random>
+#include <algorithm>
+#include "data_structures/node/Node.h"
+#include "data_structures/linked_list/LinkedList.h"
+#include "data_structures/linked_list_doubly/DoublyLinkedList.h"
+#include "data_structures/array/Array.h"
+#include "data_structures/stack/Stack.h"
+#include "data_structures/queue/Queue.h"
+#include "data_structures/tree_binary/BinaryTree.h"
+#include "data_structures/tree_binary_heap/BinaryHeap.h"
+#include "algorithms/sorting/Sorting.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -223,6 +226,22 @@ void TestBinaryHeap() {
     }
 }
 
+void TestBubbleSort() {
+    Array<int> arr;
+    for (int i = 0; i < 10; i++) {
+        arr.add(rand() % 100);
+    }
+    BubbleSort(arr, [](int a, int b) -> bool { return a < b; });
+}
+
+void TestInsertionSort() {
+    Array<int> arr;
+    for (int i = 0; i < 10; i++) {
+        arr.add(rand() % 100);
+    }
+    InsertionSort(arr, [](int a, int b) -> bool { return a > b; });
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
@@ -231,6 +250,8 @@ int main() {
     //TestStack();
     //TestQueue();
     //TestBinaryTree();
-    TestBinaryHeap();
+    //TestBinaryHeap();
+    //TestBubbleSort();
+    TestInsertionSort();
     return 0;
 }
