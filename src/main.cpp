@@ -266,6 +266,26 @@ void TestQuickSort() {
     cout << "------------------------------------" << endl;
 }
 
+void TestHeapSort() {
+    Array<int> arr;
+    for (int i = 0; i < 10; i++) {
+        arr.add(rand() % 100);
+    }
+    cout << arr << endl << line;
+    HeapSort(arr);
+    cout << arr << endl << line;
+}
+
+void TestRadixSort() {
+    Array<int> arr;
+    for (int i = 0; i < 10; i++) {
+        arr.add(rand() % 100);
+    }
+    cout << arr << endl << line;
+    RadixSort(arr);
+    cout << arr << endl << line;
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
@@ -278,6 +298,8 @@ int main() {
     //TestBubbleSort();
     //TestInsertionSort();
     //TestMergeSort();
-    TestQuickSort();
+    //TestQuickSort();
+    //TestHeapSort();
+    //TestRadixSort();
     return 0;
 }

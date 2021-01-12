@@ -15,7 +15,9 @@
 
 ## Algorithms
 ### Sorting
-- [BubbleSort](./src/algorithms/sorting/Sorting.h)
-- [InsertionSort](./src/algorithms/sorting/Sorting.h)
-- [MergeSort](./src/algorithms/sorting/Sorting.h)
-- [QuickSort](./src/algorithms/sorting/Sorting.h)
+- [BubbleSort](./src/algorithms/sorting/BubbleSort.h)
+- [InsertionSort](./src/algorithms/sorting/InsertionSort.h)
+- [MergeSort](./src/algorithms/sorting/MergeSort.h)
+- [QuickSort](./src/algorithms/sorting/QuickSort.h)
+- [HeapSort](./src/algorithms/sorting/HeapSort.h)
+- [RadixSort](./src/algorithms/sorting/RadixSort.h)

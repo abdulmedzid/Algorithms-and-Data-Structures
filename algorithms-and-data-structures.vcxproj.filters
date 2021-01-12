@@ -48,6 +48,27 @@
     <ClInclude Include="src\algorithms\sorting\Sorting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\BubbleSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\InsertionSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\MergeSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\QuickSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\HeapSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\RadixSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\sorting\SortType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

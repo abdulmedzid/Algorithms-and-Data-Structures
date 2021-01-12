@@ -139,7 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\algorithms\sorting\BubbleSort.h" />
+    <ClInclude Include="src\algorithms\sorting\HeapSort.h" />
+    <ClInclude Include="src\algorithms\sorting\InsertionSort.h" />
+    <ClInclude Include="src\algorithms\sorting\MergeSort.h" />
+    <ClInclude Include="src\algorithms\sorting\QuickSort.h" />
+    <ClInclude Include="src\algorithms\sorting\RadixSort.h" />
     <ClInclude Include="src\algorithms\sorting\Sorting.h" />
+    <ClInclude Include="src\algorithms\sorting\SortType.h" />
     <ClInclude Include="src\data_structures\array\Array.h" />
     <ClInclude Include="src\data_structures\linked_list\LinkedList.h" />
     <ClInclude Include="src\data_structures\linked_list_doubly\DoublyLinkedList.h" />

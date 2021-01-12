@@ -132,9 +132,9 @@ public:
                             return mElements[location];
                         }
 
-    T&                  getMax() {
+    T&                  getMax() const {
                             if (!this->isEmpty()) {
-                                T& max = mElements[0];
+                                T max = mElements[0];
                                 for (int i = 1; i < this->mSize; i++) {
                                     if (mElements[i] > max) {
                                         max = mElements[i];
@@ -142,12 +142,12 @@ public:
                                 }
                                 return max;
                             }
-                            return T();
+                            throw std::exception("empty array");
                         }
 
-    T&                  getMin() {
+    T&                  getMin() const {
                             if (!this->isEmpty()) {
-                                T& min = mElements[0];
+                                T min = mElements[0];
                                 for (int i = 1; i < this->mSize; i++) {
                                     if (mElements[i] < min) {
                                         min = mElements[i];
@@ -155,7 +155,7 @@ public:
                                 }
                                 return min;
                             }
-                            return T();
+                            throw std::exception("empty array");
                         }
 
     void                setSize(int size) {
