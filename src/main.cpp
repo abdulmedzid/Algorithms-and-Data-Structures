@@ -10,6 +10,7 @@
 #include "data_structures/tree_binary/BinaryTree.h"
 #include "data_structures/tree_binary_heap/BinaryHeap.h"
 #include "algorithms/sorting/Sorting.h"
+#include "data_structures/graph/Graph.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -286,6 +287,21 @@ void TestRadixSort() {
     cout << arr << endl << line;
 }
 
+void TestAdjacencyMatrix() {
+    AdjacencyMatrix graph("tests/graph_from_file_test.txt");
+    cout << graph;
+    graph.addNode();
+    cout << graph;
+}
+
+void TestAdjacencyList() {
+    AdjacencyList<char> adjacencyList;
+    adjacencyList.addEdge('a', 'b', 10);
+    adjacencyList.addEdge('b', 'a', 10);
+    adjacencyList.addEdge('c', 'd', 15);
+    cout << adjacencyList << endl;
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
@@ -301,5 +317,7 @@ int main() {
     //TestQuickSort();
     //TestHeapSort();
     //TestRadixSort();
+    //TestAdjacencyMatrix();
+    TestAdjacencyList();
     return 0;
 }
