@@ -13,8 +13,8 @@
 - [Binary Tree](./src/data_structures/tree_binary/BinaryTree.h)
 - [Binary Heap](./src/data_structures/tree_binary_heap/BinaryHeap.h)
 ### Graphs
-- [AdjacenyMatrix](src\data_structures\graph\AdjacencyMatrix.h)
-- [AdjacenyList](src\data_structures\graph\AdjacencyList.h)
+- [AdjacenyMatrix](./src/data_structures/graph/AdjacencyMatrix.h)
+- [AdjacenyList](./src/data_structures/graph/AdjacencyList.h)
 
 ## Algorithms
 ### Sorting
