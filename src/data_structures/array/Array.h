@@ -110,13 +110,14 @@ public:
                             mElements[location] = obj;
                         }
 
-    void                remove(const T& obj) {
-                            removeAt(indexOf(obj));
+    bool                remove(const T& obj) {
+                           return removeAt(indexOf(obj));
                         }
 
-    void                removeAt(int location) {
-                            if (location == -1) return;
+    bool                removeAt(int location) {
+                            if (location == -1) return false;
                             shift(-1, location + 1);
+                            return true;
                         }
 
     int                 indexOf(const T& obj) const {

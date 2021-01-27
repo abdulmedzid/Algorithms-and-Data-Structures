@@ -9,10 +9,10 @@ template <class T>
 class LinkedList : public List<T> {
 private:
     typedef Node<T> Node;
-    Node*            mFirst;
+    Node*               mFirst;
     
-    Node*            getNodeAt(int location) const {
-                            if (!this->isIndexInBounds(location)) {
+    Node*               getNodeAt(int location) const {
+                            if (!isIndexInBounds(location)) {
                                 throw std::exception("index out of bounds");
                             }
                             Node* node = mFirst;
@@ -22,7 +22,7 @@ private:
                             return node;
                         }
     
-    Node*            getLastNode() const {
+    Node*               getLastNode() const {
                             if (mFirst == nullptr) {
                                 throw std::exception("empty linked list");
                             }
@@ -60,7 +60,7 @@ private:
 public:
                         LinkedList() : List<T>(), mFirst(nullptr) {}
                         
-                        LinkedList(const LinkedList& obj) : List<T>() {
+                        LinkedList(const LinkedList& obj) : List<T>(), mFirst(nullptr) {
                             copyNodes(obj);
                         }
                         
@@ -112,14 +112,17 @@ public:
                             return getNodeAt(location)->getData();
                         }
     
-    void                remove(const T& obj) {
-                            removeAt(indexOf(obj));
+    bool                remove(const T& obj) {
+                            return removeAt(indexOf(obj));
                         }
     
-    void                removeAt(int location) {
+    bool                removeAt(int location) {
+                            if (!isIndexInBounds(location)) {
+                                return false;
+                            }
                             if (location == 0) {
                                 if (mFirst == nullptr) {
-                                    throw std::exception("empty linked list");
+                                    return false;
                                 }
                                 else {
                                     Node* rmNode = mFirst;
@@ -134,6 +137,7 @@ public:
                                 delete rmNode;
                             }
                             this->mSize--;
+                            return true;
                         }
     
     int                 indexOf(const T& obj) const {
@@ -158,6 +162,24 @@ public:
                             }
                             mFirst = nullptr;
                             this->mSize = 0;
+                        }
+
+    bool                isIndexInBounds(int i) const {
+                            return i >= 0 && i < getSize();
+                        }
+
+    int                 getSize() const {
+                            int size = 0;
+                            Node* node = mFirst;
+                            while (node != nullptr) {
+                                node = node->getRight();
+                                size++;
+                            }
+                            return size;
+                        }
+
+    bool                contains(const T& obj) {
+                            return indexOf(obj) != -1;
                         }
 
     std::string         toString() const {

@@ -5,6 +5,7 @@
 #include <functional>
 #include "../node/Node.h"
 #include "../queue/Queue.h"
+#include "../stack/Stack.h"
 
 template <class T>
 class BinaryTree {
@@ -102,6 +103,54 @@ public:
                             postOrder(root->getLeft(), callback);
                             postOrder(root->getRight(), callback);
                             callback(root);
+                        }
+
+    void                inOrderIterative(std::function<void(Node*)> callback) {
+                            Stack<Node*> stack;
+                            Node* curr = mRoot;
+                            while (curr != nullptr || !stack.isEmpty()) {
+             
+                                while (curr != nullptr) {
+                                    stack.push(curr);
+                                    curr = curr->getLeft();
+                                }
+
+                                Node* node = stack.pop();
+                                callback(node);
+
+                                curr = node->getRight();
+                            }
+                        }
+
+    void                preOrderIterative(std::function<void(Node*)> callback) {
+                            Queue<Node*> queue;
+                            queue.enqueue(mRoot);
+                            while (!queue.isEmpty())
+                            {
+                                Node* root = queue.dequeue();
+                                if (root != nullptr) {
+                                    callback(root);
+                                    queue.enqueue(root->getLeft());
+                                    queue.enqueue(root->getRight());
+                                }
+                            }
+                        }
+
+    void                postOrderIterative(std::function<void(Node*)> callback) {
+                            Stack<Node*> stack;
+                            Stack<Node*> orderStack;
+                            stack.push(mRoot);
+                            while (!stack.isEmpty()) {
+                                Node* curr = stack.pop();
+                                if (curr != nullptr) {
+                                    stack.push(curr->getLeft());
+                                    stack.push(curr->getRight());
+                                    orderStack.push(curr);
+                                }
+                            }
+                            while (!orderStack.isEmpty()) {
+                                callback(orderStack.pop());
+                            }
                         }
 
     std::string         toString() const {

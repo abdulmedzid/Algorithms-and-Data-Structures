@@ -110,6 +110,18 @@ public:
         mMatrix[a][b] = weight;
     }
 
+    int getEdgeWeight(int from, int to) const {
+        return mMatrix[from][to];
+    }
+
+    int getSize() const {
+        return mNodeCount;
+    }
+
+    bool isNeigbour(int from, int to) const {
+        return mMatrix[from][to] > 0;
+    }
+
     std::string toString() const {
         std::stringstream ss;
         ss << "  | ";

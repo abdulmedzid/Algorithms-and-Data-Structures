@@ -75,13 +75,14 @@ private:
                             this->mSize++;
                         }
 
-    void                removeNode(Node* node) {
+    bool                removeNode(Node* node) {
                             Node* prev = node->getLeft();
                             Node* next = node->getRight();
                             prev->setRight(next);
                             next->setLeft(prev);
                             delete node;
                             this->mSize--;
+                            return true;
                         }
 
     void                copyNodes(const DoublyLinkedList& obj) {
@@ -140,12 +141,12 @@ public:
                             getNodeAt(location)->setData(obj);
                         }
 
-    void                remove(const T& obj) {
-                            removeNode(getNodeOf(obj));
+    bool                remove(const T& obj) {
+                            return removeNode(getNodeOf(obj));
                         }
 
-    void                removeAt(int location) {
-                            removeNode(getNodeAt(location));
+    bool                removeAt(int location) {
+                            return removeNode(getNodeAt(location));
                         }
 
     int                 indexOf(const T& obj) const {

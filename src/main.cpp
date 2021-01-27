@@ -9,8 +9,10 @@
 #include "data_structures/queue/Queue.h"
 #include "data_structures/tree_binary/BinaryTree.h"
 #include "data_structures/tree_binary_heap/BinaryHeap.h"
-#include "algorithms/sorting/Sorting.h"
 #include "data_structures/graph/Graph.h"
+#include "algorithms/sorting/Sorting.h"
+#include "algorithms/graph_traversing/DFS.h"
+#include "algorithms/graph_traversing/BFS.h"
 using namespace std;
 
 const char* line = "---------------------------------------------------\n";
@@ -207,8 +209,20 @@ void TestBinaryTree() {
 
     cout << binaryTree << endl;
 
+    cout << "-----------------------" << endl;
+    cout << "PreOrder:" << endl;
+    binaryTree.preOrderIterative([](Node<int>* x) {cout << *x << endl;});
+    cout << "-----------------------" << endl;
+    cout << "PostOrder:" << endl;
+    binaryTree.postOrderIterative([](Node<int>* x) {cout << *x << endl; });
+    cout << "-----------------------" << endl;
+    cout << "InOrder:" << endl;
+    binaryTree.inOrderIterative([](Node<int>* x) {cout << *x << endl; });
+
+    /*
     BinaryTree<int> copy = binaryTree;
     cout << "copy\n" << copy << endl;
+    */
 }
 
 void TestBinaryHeap() {
@@ -302,6 +316,18 @@ void TestAdjacencyList() {
     cout << adjacencyList << endl;
 }
 
+void TestDfs() {
+    AdjacencyMatrix graph("tests/graph_from_file_test.txt");
+    cout << "DFS TEST" << endl;
+    cout << Dfs(graph, 4);
+}
+
+void TestBfs() {
+    AdjacencyMatrix graph("tests/graph_from_file_test.txt");
+    cout << "BFS TEST" << endl;
+    cout << Bfs(graph, 3);
+}
+
 int main() {
 	//TestNodes();
 	//TestLinkedList();
@@ -318,6 +344,8 @@ int main() {
     //TestHeapSort();
     //TestRadixSort();
     //TestAdjacencyMatrix();
-    TestAdjacencyList();
+    //TestAdjacencyList();
+    //TestDfs();
+    TestBfs();
     return 0;
 }

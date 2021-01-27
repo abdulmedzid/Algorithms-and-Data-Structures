@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\algorithms\graph_traversing\BFS.h" />
+    <ClInclude Include="src\algorithms\graph_traversing\DFS.h" />
     <ClInclude Include="src\algorithms\sorting\BubbleSort.h" />
     <ClInclude Include="src\algorithms\sorting\HeapSort.h" />
     <ClInclude Include="src\algorithms\sorting\InsertionSort.h" />
@@ -154,6 +156,9 @@
     <ClInclude Include="src\data_structures\graph\AdjacencyList.h" />
     <ClInclude Include="src\data_structures\graph\AdjacencyMatrix.h" />
     <ClInclude Include="src\data_structures\graph\Graph.h" />
+    <ClInclude Include="src\data_structures\hash\HashTable.h" />
+    <ClInclude Include="src\data_structures\hash\HashTableChaining.h" />
+    <ClInclude Include="src\data_structures\hash\HashTableOpenAdressing.h" />
     <ClInclude Include="src\data_structures\linked_list\LinkedList.h" />
     <ClInclude Include="src\data_structures\linked_list_doubly\DoublyLinkedList.h" />
     <ClInclude Include="src\data_structures\list\List.h" />
@@ -165,6 +170,7 @@
     <ClInclude Include="src\data_structures\tree_binary_heap\BinaryHeap.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\algorithms\path_finding\Djikstra.h" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

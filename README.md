@@ -24,3 +24,6 @@
 - [QuickSort](./src/algorithms/sorting/QuickSort.h)
 - [HeapSort](./src/algorithms/sorting/HeapSort.h)
 - [RadixSort](./src/algorithms/sorting/RadixSort.h)
+### Traversing Graphs
+- [DFS](./src/algorithms/graph_traversing/DFS.h)
+- [BFS](./src/algorithms/graph_traversing/BFS.h)
