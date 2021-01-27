@@ -15,6 +15,9 @@
 ### Graphs
 - [AdjacenyMatrix](./src/data_structures/graph/AdjacencyMatrix.h)
 - [AdjacenyList](./src/data_structures/graph/AdjacencyList.h)
+### Hash Tables
+- [Chaining](./src/data_structures/hash/HashTableChaining.h)
+- [Open Adressing](./src/data_structures/hash/HashTableOpenAdressing.h)
 
 ## Algorithms
 ### Sorting
